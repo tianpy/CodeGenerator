@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AAt" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+  </resultMaps>
+
+  <statements>
+    <!--分页前缀-->
+    <sql id="PagePrefix">
+      FROM (
+      select ROW_NUMBER() Over(order by
+    </sql>
+    <!--分页中缀-->
+    <sql id="PageInfix">
+      ) as row_num,
+    </sql>
+    <!--分页后缀-->
+    <!--<sql id="PageSuffix_oracle">
+      ) where row_num between ($PageIndex$-1)*$PageSize$+1 and ($PageIndex$-1)*$PageSize$+$PageSize$
+    </sql>-->
+    <sql id="PageSuffix">
+      ) as tabledata
+      <dynamic>
+        <isNotNull property="Page">
+          <isNotNull property="Rows">
+            where row_num between ($Page$-1)*$Rows$+1 and ($Page$-1)*$Rows$+$Rows$
+          </isNotNull>
+        </isNotNull>
+      </dynamic>
+    </sql>
+  </statements>
+</sqlMap>

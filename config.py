@@ -1,0 +1,30 @@
+config={
+    "db":{
+        "host":"127.0.0.1",
+        "port":"1433",
+        "database":"TeldPay",
+        "username":"sa",
+        "password":"123456"
+    },
+    "project":{
+        "companycode":"Teld",
+        "appcode":"BIZ",
+        "appchinesename":"业务公共",
+        "modulecode":"CASC",
+        "modulechinesename":"清结算中心",
+        "functioncode":"Clearing",
+        "functionchinesename":"清分"
+    },
+    "domainmodel":{
+        "domainname":"ClearingOrder",
+        "domainchinesename":"清分订单",
+        "tablename":"CASP_ClearingOrder",
+        "orderby":["BCode DESC"],
+        "foreignkeyrelations":{
+            "PlatformMerchantID":"CASP_PlatformMerchant.ID"
+        },
+        "modelpropertyrelations":{
+            "PlatformMerchantName":"CASP_PlatformMerchant.Name"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{#{#{companycode}.#{appcode}.#{modulecode}.Service.SolutionID}}") = "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service", "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service\#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service.csproj", "{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service.ProjectID}}"
+EndProject
+Project("{#{#{companycode}.#{appcode}.#{modulecode}.Service.SolutionID}}") = "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC", "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC\#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC.csproj", "{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC.ProjectID}}"
+EndProject
+Project("{#{#{companycode}.#{appcode}.#{modulecode}.Service.SolutionID}}") = "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI", "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI\#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.csproj", "{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.ProjectID}}"
+EndProject
+Project("{#{#{companycode}.#{appcode}.#{modulecode}.Service.SolutionID}}") = "#{companycode}.#{appcode}.#{modulecode}.Common", "#{companycode}.#{appcode}.#{modulecode}.Common\#{companycode}.#{appcode}.#{modulecode}.Common.csproj", "{#{#{companycode}.#{appcode}.#{modulecode}.Common.ProjectID}}"
+EndProject
+Project("{#{#{companycode}.#{appcode}.#{modulecode}.Service.SolutionID}}") = "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests", "#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests\#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests.csproj", "{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests.ProjectID}}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC.ProjectID}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC.ProjectID}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC.ProjectID}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.DAC.ProjectID}}.Release|Any CPU.Build.0 = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service.ProjectID}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service.ProjectID}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service.ProjectID}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.Service.ProjectID}}.Release|Any CPU.Build.0 = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.ProjectID}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.ProjectID}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.ProjectID}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.ProjectID}}.Release|Any CPU.Build.0 = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests.ProjectID}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests.ProjectID}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests.ProjectID}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.ServiceTests.ProjectID}}.Release|Any CPU.Build.0 = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.Common.ProjectID}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.Common.ProjectID}}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.Common.ProjectID}}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{#{#{companycode}.#{appcode}.#{modulecode}.Common.ProjectID}}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {#{solutionid}}
+	EndGlobalSection
+EndGlobal

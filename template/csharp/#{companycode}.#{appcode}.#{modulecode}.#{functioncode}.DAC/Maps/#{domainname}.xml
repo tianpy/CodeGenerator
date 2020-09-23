@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<sqlMap namespace="#{domainname}" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="#{domainname}Entity" type="#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.#{domainname}Entity,#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI"/>
+    <typeAlias alias="#{domainname}Model" type="#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI.#{domainname}Model,#{companycode}.#{appcode}.#{modulecode}.#{functioncode}.SPI"/>
+  </alias>
+  <statements>
+    <!--#{tablename}表所有插入列-->
+    <sql id="Sql#{domainname}AllColumnForInsert">
+      #{allfieldsforinsert}
+    </sql>
+    <!--#{tablename}表所有参数列-->
+    <sql id="Sql#{domainname}AllColumnForInsertParams">
+      #{allfieldsforinsertparam}
+    </sql>
+    <!--#{tablename}表所有查询列-->
+    <sql id="Sql#{domainname}AllColumnForSelect">
+      #{allfieldsforselect}
+    </sql>
+    <!--#{tablename}表所有关联查询列-->
+    <sql id="Sql#{domainname}AllColumnForJoin">
+      #{allfieldsforjoin}
+    </sql>
+    <!--#{tablename}表所有关联查询表-->
+    <sql id="Sql#{domainname}AllTablesForJoin">
+      #{alltablesforjoin}
+    </sql>
+    <!--#{tablename}表更新列名称值对-->
+    <sql id="Sql#{domainname}ForUpdateSet">
+      <dynamic prepend="set">
+        #{allfieldsforupdate}
+      </dynamic> where ID = #ID#
+    </sql>
+    <!--#{tablename}表查询排序字段-->
+    <sql id="Sql#{domainname}ForOrderBy">
+      #{allfieldsfororderby}
+    </sql>
+    <!--#{tablename}表查询条件-->
+    <sql id="Sql#{domainname}ModelForWhere">
+      <dynamic prepend="where">
+        #{allfieldsforwhere}
+      </dynamic>
+    </sql>
+    <!--通过主键查询#{tablename}表数据-->
+    <select id="Get#{domainname}ModelById" resultClass="#{domainname}Model" parameterClass="String">
+      select <include refid="Sql#{domainname}AllColumnForJoin"></include>
+      from #{tablename} M with(nolock)
+      <include refid="Sql#{domainname}AllTablesForJoin"></include>
+      where M.ID = #value#
+    </select>
+    <!--分页查询#{tablename}表数据-->
+    <select id="GetPaged#{domainname}Model" resultClass="#{domainname}Model" parameterClass="System.Collections.IDictionary">
+      select <include refid="Sql#{domainname}AllColumnForSelect"></include>
+      <include refid="PagePrefix"></include>
+      <include refid="Sql#{domainname}ForOrderBy"></include>
+      <include refid="PageInfix"></include>
+      <include refid="Sql#{domainname}AllColumnForJoin"></include>
+      from #{tablename} M with(nolock)
+      <include refid="Sql#{domainname}AllTablesForJoin"></include>
+      <include refid="Sql#{domainname}ModelForWhere"></include>
+      <include refid="PageSuffix"></include>
+    </select>
+    <!--分页查询#{tablename}表数据总条数-->
+    <select id="GetAll#{domainname}Count" resultClass="int" parameterClass="System.Collections.IDictionary">
+      select count(1) from #{tablename} M with(nolock)
+      <include refid="Sql#{domainname}ModelForWhere"></include>
+    </select>
+    <!--插入#{tablename}表数据-->
+    <insert id="Insert#{domainname}Entity" parameterClass="#{domainname}Entity">
+      insert into #{tablename} (
+      <include refid="Sql#{domainname}AllColumnForInsert"></include>
+      )values(<include refid="Sql#{domainname}AllColumnForInsertParams"></include>
+      )
+      <selectKey property="ID" type="pre" resultClass="String">
+        select cast(newid() as varchar(36)) as ID
+      </selectKey>
+    </insert>
+    <!--更新#{tablename}表数据-->
+    <update id="Update#{domainname}Entity" parameterClass="#{domainname}Entity">
+      update #{tablename}
+      <include refid="Sql#{domainname}ForUpdateSet"></include>
+    </update>
+  </statements>
+</sqlMap>
